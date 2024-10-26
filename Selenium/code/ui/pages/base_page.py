@@ -50,7 +50,7 @@ class BasePage(object):
 
 
     @allure.step('Click')
-    def click(self, locator, timeout=None) -> WebElement:
+    def click(self, locator, timeout=10) -> WebElement:
         self.find(locator, timeout=timeout)
         elem = self.wait(timeout).until(EC.element_to_be_clickable(locator))
         elem.click()
